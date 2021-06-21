@@ -15,4 +15,12 @@ class ArtistController extends AbstractController
             'controller_name' => 'ArtistController',
         ]);
     }
+
+    #[Route('/artist/{id<\d+>}', name: 'artist_show')]
+    public function show(): Response
+    {
+        return $this->render('artist/show.html.twig', [
+            'controller_name' => 'ArtistController',
+        ]);
+    }
 }
