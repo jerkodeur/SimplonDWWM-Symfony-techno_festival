@@ -11,16 +11,19 @@ class ArtistController extends AbstractController
     #[Route('/artist', name: 'artist_home')]
     public function index(): Response
     {
+        $color = ["secondary", "danger", "info", "warning", "light", "success"];
         return $this->render('artist/index.html.twig', [
             'controller_name' => 'ArtistController',
+            'colors' => $color
         ]);
     }
 
     #[Route('/artist/{id<\d+>}', name: 'artist_show')]
-    public function show(): Response
+    public function show(int $id): Response
     {
         return $this->render('artist/show.html.twig', [
             'controller_name' => 'ArtistController',
+            'id' => $id
         ]);
     }
 }
