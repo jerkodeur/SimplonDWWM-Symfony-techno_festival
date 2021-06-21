@@ -6,21 +6,22 @@
 
 <div class="row">
     {% for artist in 0..25 %}
-    {% set color = "border-" ~ random(colors) %}
     {# <pre>
         {{ dump(color) }}
     </pre> #}
-    <div class="col-4 text-center">
-        <div class="card mb-3 {{ color }}"  style="max-width: 20rem;">
-                <div class="card-header">Header</div>
-                    <div class="card-body">
-                    <h4 class="card-title">Titre {{ loop.index }}</h4>
-                    <p class="card-text">Content  {{ loop.index }}</p>
-                    <div>
-                        <small>
-                            <a href={{ path('artist_show', {id: loop.index}) }}>Voir l'artiste</a>
-                        </small>
-                    </div>
+    <div class="col-4">
+        <div class="card mb-3 {{ "border-" ~ random(border_colors) }}"  style="max-width: 20rem;">
+                <div class="card-header align-self-end">
+                    <span class="badge rounded-pill {{ "bg-" ~ random(bg_colors) }}">Lorem, ipsum.</span>
+                </div>
+                <div class="card-body">
+                <h4 class="card-title">Artist n°{{ loop.index }}</h4>
+                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing ...</p>
+                <div>
+                    <small>
+                        <a href={{ path('artist_show', {id: loop.index}) }}>Découvrir l'artiste</a>
+                    </small>
+                </div>
                 </div>
         </div>
     </div>

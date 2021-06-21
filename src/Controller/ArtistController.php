@@ -11,10 +11,13 @@ class ArtistController extends AbstractController
     #[Route('/artist', name: 'artist_home')]
     public function index(): Response
     {
-        $color = ["secondary", "danger", "info", "warning", "light", "success"];
+        $border_color = ["secondary", "danger", "info", "warning", "light", "success"];
+        $bg_color = ["secondary", "danger", "info", "warning"];
+
         return $this->render('artist/index.html.twig', [
             'controller_name' => 'ArtistController',
-            'colors' => $color
+            'border_colors' => $border_color,
+            'bg_colors' => $bg_color
         ]);
     }
 
