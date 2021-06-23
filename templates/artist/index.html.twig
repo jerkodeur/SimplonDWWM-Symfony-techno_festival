@@ -4,17 +4,19 @@
 
 {% block body %}
 
+<div class="d-flex my-5 justify-content-center">
+    {% for name, color in categories %}
+        <button type="button" class="btn btn-outline-{{ color }}">{{ name }}</button>
+    {% endfor %}
+</div>
 <div class="row">
     {% for artist in 0..25 %}
-    {# <pre>
-        {{ dump(color) }}
-    </pre> #}
     <div class="col-4">
         <div class="card mb-3 {{ "border-" ~ random(border_colors) }}"  style="max-width: 20rem;">
-                <div class="card-header align-self-end">
-                    <span class="badge rounded-pill {{ "bg-" ~ random(bg_colors) }}">Lorem, ipsum.</span>
-                </div>
-                <div class="card-body">
+            <div class="card-header align-self-end">
+                <span class="badge rounded-pill {{ "bg-" ~ random(bg_colors) }}">Lorem, ipsum.</span>
+            </div>
+            <div class="card-body">
                 <h4 class="card-title">Artist n°{{ loop.index }}</h4>
                 <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing ...</p>
                 <div>
@@ -22,7 +24,7 @@
                         <a href={{ path('artist_show', {id: loop.index}) }}>Découvrir l'artiste</a>
                     </small>
                 </div>
-                </div>
+            </div>
         </div>
     </div>
     {% endfor %}
