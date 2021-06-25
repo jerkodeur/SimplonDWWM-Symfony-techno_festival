@@ -4,11 +4,10 @@ namespace App\DataFixtures;
 
 use App\Entity\Artist;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 
-class ArtistFixtures extends Fixture implements DependentFixtureInterface
+class ArtistFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
@@ -18,17 +17,10 @@ class ArtistFixtures extends Fixture implements DependentFixtureInterface
             $artist = new Artist();
             $artist->setName('DJ' . $faker->firstName());
             $artist->setDescription($faker->paragraphs(3, true));
-            $artist->setCategory($this->getReference('category'));
             $manager->persist($artist);
         }
 
         $manager->flush();
     }
 
-    public function getDependencies()
-    {
-        return [
-            CategoryFixtures::class
-        ];
-    }
 }

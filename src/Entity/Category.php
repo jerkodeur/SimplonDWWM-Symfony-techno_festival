@@ -32,11 +32,6 @@ class Category
     private $slug;
 
     /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $color;
-
-    /**
      * @ORM\OneToMany(targetEntity=Artist::class, mappedBy="category")
      */
     private $artists;
@@ -71,18 +66,6 @@ class Category
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
-
-        return $this;
-    }
-
-    public function getColor(): ?string
-    {
-        return $this->color;
-    }
-
-    public function setColor(string $color): self
-    {
-        $this->color = $color;
 
         return $this;
     }
