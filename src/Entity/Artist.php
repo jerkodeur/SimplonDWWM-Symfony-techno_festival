@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ArtistRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=ArtistRepository::class)
@@ -24,6 +25,7 @@ class Artist
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Gedmo\Slug(field={"name"})
      */
     private $slug;
 
