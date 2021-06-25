@@ -2,30 +2,16 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Category;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
 class AppFixtures extends Fixture
 {
-    private array $categories = [
-        "Mélodique" => "success",
-        "Industrielle" => "light",
-        "Groovy" => "warning",
-        "Deep" => "danger",
-        "Détroit" => "secondary",
-    ];
-
     public function load(ObjectManager $manager)
     {
-        foreach($this->categories as $label => $color) {
-            $category = new Category();
-            $category->setLabel($label);
-            $category->setColor($color);
-            $manager->persist($category);
-        }
+        // $product = new Product();
+        // $manager->persist($product);
 
         $manager->flush();
     }
-
 }
