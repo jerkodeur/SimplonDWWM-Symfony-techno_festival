@@ -15,7 +15,7 @@ class ArtistFixtures extends Fixture
 
         for($i = 0; $i < 5; $i++) {
             $artist = new Artist();
-            $artist->setName('DJ' . $faker->firstName());
+            $artist->setName('DJ ' . $faker->firstName());
             $artist->setDescription($faker->paragraphs(3, true));
             $manager->persist($artist);
         }

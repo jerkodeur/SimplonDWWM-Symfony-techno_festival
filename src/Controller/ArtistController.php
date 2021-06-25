@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Repository\ArtistRepository;
+use App\Service\CategoryHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,23 +11,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArtistController extends AbstractController
 {
     #[Route('/artist', name: 'artist_home')]
-    public function index(): Response
+    public function index(CategoryHandler $categoryHandler, ArtistRepository $artistRepository): Response
     {
-        $border_color = ["secondary", "danger", "info", "warning", "light", "success"];
-        $bg_color = ["secondary", "danger", "info", "warning"];
-        $categories = [
-            "Mélodique" => "danger",
-            "Industrielle" => "info",
-            "Groovy" => "secondary",
-            "Deep" => "warning",
-            "Détroit" => "success"
-        ];
+        $categories = $categoryHandler->handle();
+
+        // dd($categories, $artistRepository->findAll());
 
         return $this->render('artist/index.html.twig', [
-            'controller_name' => 'ArtistController',
-            'border_colors' => $border_color,
-            'bg_colors' => $bg_color,
-            'categories' => $categories
+            'categories' => $categories,
+            'artists' => $artistRepository->findAll()
         ]);
     }
 
@@ -33,7 +27,6 @@ class ArtistController extends AbstractController
     public function show(int $id): Response
     {
         return $this->render('artist/show.html.twig', [
-            'controller_name' => 'ArtistController',
             'id' => $id
         ]);
     }
