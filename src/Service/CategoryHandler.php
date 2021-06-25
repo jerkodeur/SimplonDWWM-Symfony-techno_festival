@@ -6,14 +6,8 @@ use App\Repository\CategoryRepository;
 
 class CategoryHandler
 {
-    private $categoryRepository;
 
-    public function __construct(CategoryRepository $categoryRepository)
-    {
-        $this->categoryRepository = $categoryRepository;
-    }
-
-    public function handle(): array
+    public function handle(array $categories): array
     {
         $colors = [
             "Mélodique" => "danger",
@@ -22,8 +16,6 @@ class CategoryHandler
             "Deep" => "warning",
             "Détroit" => "success"
         ];
-
-        $categories = $this->categoryRepository->findAll();
 
         foreach($categories as $category) {
             $category->setColor($colors[$category->getLabel()]);

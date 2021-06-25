@@ -11,9 +11,6 @@
 </div>
 <div class="row">
     {% for artist in artists %}
-    {# <pre>
-        {{ dump(artist.category ? artist.category.color : null) }}
-    </pre> #}
     <div class="col-4">
         <div class="card mb-3 border-{{ artist.category ? artist.category.color : 'dark' }}"  style="max-width: 20rem;">
             <div class="card-header align-self-end">
@@ -24,7 +21,7 @@
                 <p class="card-text">{{ artist.description | u.truncate(100, '...') }}</p>
                 <div>
                     <small>
-                        <a href={{ path('artist_show', {id: artist.id}) }}>Découvrir l'artiste</a>
+                        <a href={{ path('artist_show', {id: artist.id }) }}>Découvrir l'artiste</a>
                     </small>
                 </div>
             </div>
