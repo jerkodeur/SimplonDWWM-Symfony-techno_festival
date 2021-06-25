@@ -13,26 +13,28 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArtistController extends AbstractController
 {
     private array $categories;
+    private ArtistRepository $artistRepository;
 
-    public function __construct(CategoryRepository $categoryRepository, CategoryHandler $categoryHandler)
+    public function __construct(ArtistRepository $artistRepository, CategoryRepository $categoryRepository, CategoryHandler $categoryHandler)
     {
         $this->categories = $categoryHandler->handle($categoryRepository->findAll());
+        $this->artistRepository = $artistRepository;
     }
 
     #[Route('/artist', name: 'artist_home')]
-    public function index(ArtistRepository $artistRepository): Response
+    public function index(): Response
     {
         return $this->render('artist/index.html.twig', [
             'categories' => $this->categories,
-            'artists' => $artistRepository->findAll()
+            'artists' => $this->artistRepository->findAll()
         ]);
     }
 
     #[Route('/artist/{id<\d+>}', name: 'artist_show')]
-    public function show(ArtistRepository $artistRepository, Artist $artist): Response
+    public function show(Artist $artist): Response
     {
         return $this->render('artist/show.html.twig', [
-            'artist' => $artistRepository->find($artist)
+            'artist' => $this-> artistRepository->find($artist)
         ]);
     }
 }
