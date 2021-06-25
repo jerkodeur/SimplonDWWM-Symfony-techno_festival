@@ -18,22 +18,14 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $category = new Category();
-        foreach($this->getCategories() as $label => $color) {
+        foreach($this->categories as $label => $color) {
+            $category = new Category();
             $category->setLabel($label);
             $category->setColor($color);
+            $manager->persist($category);
         }
 
-        $manager->persist($category);
         $manager->flush();
     }
 
-
-    /**
-     * Get the value of categories
-     */
-    public function getCategories()
-    {
-        return $this->categories;
-    }
 }

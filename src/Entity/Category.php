@@ -27,7 +27,7 @@ class Category
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Gedmo\Slug(field={"label"})
+     * @Gedmo\Slug(fields={"label"})
      */
     private $slug;
 

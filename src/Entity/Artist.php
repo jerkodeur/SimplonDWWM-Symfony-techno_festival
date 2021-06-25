@@ -25,7 +25,7 @@ class Artist
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Gedmo\Slug(field={"name"})
+     * @Gedmo\Slug(fields={"name"})
      */
     private $slug;
 
