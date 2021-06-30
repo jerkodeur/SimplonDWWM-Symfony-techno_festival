@@ -11,13 +11,13 @@
                 <a class="nav-link" href={{ path('techno_home') }}>Accueil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Agenda</a>
+                <a class="nav-link" href="{{ path('agenda_home') }}">Agenda</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href={{ path('artist_home') }}>Artistes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Billeterie</a>
+                <a class="nav-link" href="{{ path('techno_ticket') }}">Billeterie</a>
             </li>
 
             {% if not app.user %}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Planification des concerts{% endblock %}
+
+{% block body %}
+    <table class='table'>
+        {% set index = 0 %}
+        {% for day in days %}
+            {% for hour in hours %}
+                <tr class="border-1 border-info">
+                    <td>{{ day }}</td>
+                    <td>{{ hour }}</td>
+                    <td>{{ artists[index].name }}</td>
+                    <td><a href="{{ path('techno_ticket', {day, hour, artist[index].name}) }}" class="btn btn-primary">Réserver une place</a></td>
+                </tr>
+                {% set index = index + 1 %}
+            {% endfor %}
+        {% endfor %}
+    </table>
+{% endblock %}
