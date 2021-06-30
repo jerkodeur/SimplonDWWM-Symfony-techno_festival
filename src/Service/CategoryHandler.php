@@ -2,12 +2,10 @@
 
 namespace App\Service;
 
-use App\Repository\CategoryRepository;
-
 class CategoryHandler
 {
 
-    public function handle(array $categories): array
+    public function setColors(array $categories): array
     {
         $colors = [
             "Mélodique" => "danger",

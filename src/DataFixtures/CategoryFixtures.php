@@ -35,7 +35,7 @@ class CategoryFixtures extends Fixture
                 $artist->setDescription($faker->paragraphs(3, true));
                 $artist->setCategory($category);
 
-                if($concert <= 9 && rand(0,8) <= 2) {
+                if($concert <= 9 && rand(0,7) <= 2) {
                     $artist->setConcert($concert);
                     $concert++;
                 }

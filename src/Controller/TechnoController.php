@@ -22,9 +22,7 @@ class TechnoController extends AbstractController
     #[Route('/', name: 'techno_home')]
     public function index(): Response
     {
-        return $this->render('techno/home.html.twig', [
-            'controller_name' => 'technoController',
-        ]);
+        return $this->render('techno/home.html.twig');
     }
 
     #[Route('/agenda', name: 'agenda_home')]

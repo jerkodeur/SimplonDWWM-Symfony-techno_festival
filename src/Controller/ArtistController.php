@@ -18,7 +18,7 @@ class ArtistController extends AbstractController
 
     public function __construct(ArtistRepository $artistRepository, CategoryRepository $categoryRepository, CategoryHandler $categoryHandler)
     {
-        $this->categories = $categoryHandler->handle($categoryRepository->findAll());
+        $this->categories = $categoryHandler->setColors($categoryRepository->findAll());
         $this->artistRepository = $artistRepository;
     }
 
