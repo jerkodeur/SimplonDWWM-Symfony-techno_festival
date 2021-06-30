@@ -41,7 +41,8 @@ class TechnoController extends AbstractController
     #[Route('/ticket/artist/{artist_id?0}', name: 'ticket_home')]
     public function ticket(ArtistRepository $artistRepository, int $artist_id): Response
     {
-        if(!$this->getUser()) return $this->redirectToRoute('artist_home');
+        if(!$this->getUser()) return $this->redirectToRoute('app_login');
+
         return $this->render('techno/ticket.html.twig', [
             'days' => $this->days,
             'hours' => $this->hours,
