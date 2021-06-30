@@ -5,8 +5,9 @@
 {% block body %}
 
 <div class="d-flex my-5 justify-content-center">
+        <a href="{{ path('artist_home') }}" role="button" type="button" class="btn btn-outline-primary mx-1">Tous</a>
     {% for category in categories %}
-        <button type="button" class="btn btn-outline-{{ category.color }}">{{ category.label }}</button>
+        <a href="{{ path('artist_category', {id: category.id}) }}" role="button" type="button" class="mx-1 btn btn-outline-{{ category.color }}">{{ category.label }}</a>
     {% endfor %}
 </div>
 <div class="row">
@@ -21,7 +22,7 @@
                 <p class="card-text">{{ artist.description | u.truncate(100, '...') }}</p>
                 <div>
                     <small>
-                        <a href={{ path('artist_show', {id: artist.id }) }}>Découvrir l'artiste</a>
+                        <a href={{ path('artist_show', {id: artist.id }) }} class="link-{{ artist.category ? artist.category.color : 'primary' }}">Découvrir l'artiste</a>
                     </small>
                 </div>
             </div>

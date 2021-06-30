@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[route('/artist', name: 'artist_')]
 class ArtistController extends AbstractController
 {
     private array $categories;
@@ -21,7 +22,7 @@ class ArtistController extends AbstractController
         $this->artistRepository = $artistRepository;
     }
 
-    #[Route('/artist', name: 'artist_home')]
+    #[Route('/', name: 'home')]
     public function index(): Response
     {
         return $this->render('artist/index.html.twig', [
@@ -30,11 +31,20 @@ class ArtistController extends AbstractController
         ]);
     }
 
-    #[Route('/artist/{id<\d+>}', name: 'artist_show')]
+    #[Route('/{id<\d+>}', name: 'show')]
     public function show(Artist $artist): Response
     {
         return $this->render('artist/show.html.twig', [
             'artist' => $this-> artistRepository->find($artist)
+        ]);
+    }
+
+    #[Route('/category/{id<\d+>}', name: 'category')]
+    public function category(int $id): Response
+    {
+        return $this->render('artist/index.html.twig', [
+            'artists' => $this->artistRepository->findBy(['category' => $id]),
+            'categories' => $this->categories
         ]);
     }
 }
