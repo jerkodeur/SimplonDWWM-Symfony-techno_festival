@@ -25,7 +25,7 @@ class ArtistRepository extends ServiceEntityRepository
     public function findByConcert()
     {
         return $this->createQueryBuilder('a')
-            ->select('a.concert', 'a.name')
+            ->select('a.id', 'a.concert', 'a.name')
             ->where('a.concert IS NOT NULL')
             ->orderBy('a.id', 'ASC')
             ->getQuery()
