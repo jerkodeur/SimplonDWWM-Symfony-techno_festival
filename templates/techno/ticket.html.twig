@@ -29,7 +29,7 @@
                     <td class="text-center">{{ hour }}</td>
                     <td class="text-center">{{ artists[index].name }}</td>
                     <td class="text-center">
-                        <input type="number" min="0" max="10" placeholder="Nombre de place" name="concert_{{ index }}"  class="bg-light w-75" {% if artist and index == artist.concert  - 1 %}autofocus value="1"{% endif %}  />
+                        <input type="number" min="0" max="10" placeholder="Nombre de places" name="concert_{{ index }}"  class="bg-light w-75" {% if artist and index == artist.concert  - 1 %}autofocus value="1"{% endif %}  />
                     </td>
                 </tr>
                 {% set index = index + 1 %}
