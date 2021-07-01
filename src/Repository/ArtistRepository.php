@@ -20,7 +20,7 @@ class ArtistRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return Artist[] Returns an array of Artist objects
+     * @return Artist[] Returns an array of Artist objects filter by concert
      */
     public function findByConcert()
     {
