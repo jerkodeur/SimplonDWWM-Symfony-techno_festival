@@ -29,13 +29,13 @@ class CategoryFixtures extends Fixture
 
             $manager->persist($category);
 
-            for($i = 1; $i < rand(3,15); $i++) {
+            for($i = 1; $i < rand(6,15); $i++) {
                 $artist = new Artist();
                 $artist->setName('DJ ' . $faker->firstName());
                 $artist->setDescription($faker->paragraphs(3, true));
                 $artist->setCategory($category);
 
-                if($concert <= 9 && rand(0,7) <= 2) {
+                if($concert <= 9 && rand(0,10) <= 4) {
                     $artist->setConcert($concert);
                     $concert++;
                 }
