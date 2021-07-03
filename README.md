@@ -1,5 +1,5 @@
 # SimplonDWWM-Symfony-techno_festival
-![]([public/asset/screenshot-header.png](https://github.com/jerkodeur/SimplonDWWM-Symfony-techno_festival/blob/main/public/asset/screenshot-header.png))
+![](public/asset/screenshot-header.png)
 ## Présentation
 A peine certifié, vous êtes embauché en même temps que deux autres juniors dans une agence web. Dès votre premier jour votre responsable souhaite vous mettre à l'épreuve en vous confiant le développement d'un petit projet que l'agence vient de recevoir
 
@@ -55,6 +55,6 @@ Vous pouvez vous connecter grâce aux identifiants suivants:
 > user@user.fr  `Mot de passe:` _motdepasse_
 > admin@admin.fr  `Mot de passe:` _motdepasse_
 
-![]([public/asset/screenshot-artist.png](https://github.com/jerkodeur/SimplonDWWM-Symfony-techno_festival/blob/main/public/asset/screenshot-artist.png))
+![](https://github.com/jerkodeur/SimplonDWWM-Symfony-techno_festival/blob/main/public/asset/screenshot-artist.png)
 
 __ENJOY__
